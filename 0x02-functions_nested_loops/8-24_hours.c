@@ -2,30 +2,31 @@
 #include "main.h"
 
 /**
- * print_last_digit - prints the last digit of a number
+ * jack_bauer - prints every hours and minutes of a day
  *
- * @n: is last digit of a number
- *
- * Return: value of the last digit
+ * @n: is hours and minutes
  */
 void jack_bauer(void)
 {
-	int n1, n2, n3, n4;
+	int h1, h2, m3, m4;
 
-	for (n1 ='0'; n1 <= '2'; n1++)
+	for (h1 = 0; h1 <= 2; h1++)
 	{
-		for (n2 = '0'; n2 <= '3'; n2++)
+		for (h2 = 0; h2 <= 9; h2++)
 		{
-			for (n3 = '0'; n3 <= '5'; n3++)
+			if ((h1 <= 1 && h2 <= 9) || (h1 <= 2 && h2 <= 3))
 			{
-				for (n4 = '0'; n4 <= '9'; n4++)
+				for (m3 = 0; m3 <= 5; m3++)
 				{
-					_putchar (n1);
-					_putchar (n2);
-					_putchar (':');
-					_putchar (n3);
-					_putchar (n4);
-					_putchar ('\n');
+					for (m4 = 0; m4 <= 9; m4++)
+					{
+						_putchar (h1 + '0');
+						_putchar (h2 + '0');
+						_putchar (':');
+						_putchar (m3 + '0');
+						_putchar (m4 + '0');
+						_putchar ('\n');
+					}
 				}
 			}
 		}
