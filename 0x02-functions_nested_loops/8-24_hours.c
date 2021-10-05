@@ -3,8 +3,6 @@
 
 /**
  * jack_bauer - prints every hours and minutes of a day
- *
- * @n: is hours and minutes
  */
 void jack_bauer(void)
 {
