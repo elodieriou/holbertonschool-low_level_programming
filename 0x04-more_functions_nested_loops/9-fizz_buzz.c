@@ -5,6 +5,8 @@
  * if multiples of three print Fizz
  * if multiples of five print Buzz
  * if mutliples of three and five print FizzBuzz
+ *
+ * Return: Alaways success
  */
 int main(void)
 {
@@ -14,22 +16,22 @@ int main(void)
 	{
 		if ((n % 3 == 0) && (n % 5 == 0))
 		{
-			printf ("FizzBuzz");
+			printf("FizzBuzz");
 		}
 		else if (n % 3  == 0)
 		{
-			printf ("Fizz");
+			printf("Fizz");
 		}
 		else if (n % 5 == 0)
 		{
-			printf ("Buzz");
+			printf("Buzz");
 		}
 		else
 		{
-			printf ("%d", n);
+			printf("%d", n);
 		}
-		printf (" ");
+		printf(" ");
 	}
-	printf ("\n");
+	printf("\n");
 	return (0);
 }
