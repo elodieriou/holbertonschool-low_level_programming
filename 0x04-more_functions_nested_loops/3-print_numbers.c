@@ -2,8 +2,6 @@
 
 /**
  * print_numbers - prints the numbers from 0 to 9
- *
- * @i: variable numbers
  */
 void print_numbers(void)
 {
