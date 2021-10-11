@@ -3,7 +3,7 @@
 /**
  * _puts - print a string to stdout
  *
- * @str: string
+ * @str: string random
  */
 void _puts(char *str)
 {
