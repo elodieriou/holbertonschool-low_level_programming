@@ -2,17 +2,16 @@
 #include "main.h"
 
 /**
- * puts2 - print every other character of a string,
- * stating with the first character
+ * puts2 - print every character of a string, starting with the first character
  *
  * @str: string
  *
  */
 void puts2(char *str)
 {
-	long int i;
+	int i, n = strlen(str);
 
-	for (i = 0; str[i] != '\0'; i += 2)
+	for (i = 0; i <= n; i += 2)
 	{
 		_putchar (str[i]);
 	}
