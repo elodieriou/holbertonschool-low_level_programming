@@ -4,7 +4,8 @@
 /**
  * *_strcpy - copy the string pointed including the terminating null byte
  *
- * @s: string
+ * @src: string 1 copy in dest
+ * @dest: string 2 copy of src
  *
  * Return: string
  */
