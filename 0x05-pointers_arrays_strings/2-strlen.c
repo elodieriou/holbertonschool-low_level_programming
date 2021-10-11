@@ -4,7 +4,9 @@
 /**
  * _strlen - returns the lenght of a string
  *
- * @count: count the caracters of the string
+ * @s: string
+ *
+ * Return: size of the string
  */
 int _strlen(char *s)
 {
