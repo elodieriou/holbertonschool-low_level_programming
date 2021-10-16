@@ -2,28 +2,6 @@
 
 ![#c is fun](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/212/cisfun.jpg)
 
-## Resources
-
-__Read or watch:__
-
-* Everything you need to know to start with C.pdf (You do not have to learn everything in there yet, but make sure you read it entirely first)
-* Dennis Ritchie
-* “C” Programming Language: Brian Kernighan
-* Why C Programming Is Awesome
-* Learning to program in C part 1
-* Learning to program in C part 2
-* Understanding C program Compilation Process
-* Betty Coding Style
-* Hash-bang under the hood (Look at only after you finish consuming the other resources)
-* Linus Torvalds on C vs. C++ (Look at only after you finish consuming the other resources)
-
-__man or help:__
-
-* gcc
-* printf (3)
-* puts
-* putchar
-
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -154,21 +132,27 @@ Which command can be used to compile a C source file?
 
 Which of the following are both valid comment syntaxes in ANSI C, and Betty-compliant?
 
-- [x] /* Comment */
+- [x]
+	/* Comment */
 
-- [ ] // Comment
+- [ ]
+	// Comment
 
-      /*
-- [ ] Comment
-      */
+- [ ]
+	/*
+	Comment
+	*/
 
-      /*
-- [x]  * Comment
-       */
+- [x]
+       /*
+        * Comment
+        */
 
-- [ ] # Comment
+- [ ]
+	# Comment
 
-- [ ] /* Comment /* nested */ */
+- [ ]
+	/* Comment /* nested */ */
 
 ### Question #5
 
