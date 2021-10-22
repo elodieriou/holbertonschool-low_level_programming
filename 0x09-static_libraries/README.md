@@ -39,3 +39,16 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 ## More Info
 
 You do not need to learn about dynamic libraries, yet.
+
+## Concept
+
+If you want to creat a static library, you need to follow these steps :
+
+       1. Copy all the file.c in the directory
+       2. Create a main.h with all prototype. __Don't forget to add a double inclusion in your main.h__
+       3. Verify all file.c are in the directory : ls -l
+       4. Compile all of your file.c : gcc -Wall -pedantic -Werror -Wextra -std=gnu89 -c *.c
+       5. Verify that your all file.c are duplicate with the extension .O : ls -l
+       6. Create the library. For exemple, my librairy called "libmy" : ar -rc libmy.a *.o
+       7. You can display a table listing the contents of your archive (=library) : ar -t libschool.a
+       8. If you want to create or update your index : ranlib libmy.a
