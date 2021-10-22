@@ -12,7 +12,7 @@
  */
 int main(int argc, char *argv[])
 {
-      	if (argc == 3)
+	if (argc == 3)
 	{
 		int mul1 = atoi(argv[1]);
 		int mul2 = atoi(argv[2]);
