@@ -1,4 +1,3 @@
-#include <string.h>
 #include "main.h"
 
 /**
@@ -11,5 +10,18 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	return (strspn(s, accept));
+	unsigned int sum = 0;
+	unsigned int i, k;
+
+	for (i = 0; s[i] != 32; i++)
+	{
+		for (k = 0; accept[k] != '\0'; k++)
+		{
+			if (s[i] == accept[k])
+			{
+				sum = sum + 1;
+			}
+		}
+	}
+	return (sum);
 }
