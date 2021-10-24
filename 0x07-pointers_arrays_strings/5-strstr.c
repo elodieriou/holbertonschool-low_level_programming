@@ -1,4 +1,3 @@
-#include <string.h>
 #include "main.h"
 
 /**
@@ -9,7 +8,19 @@
  *
  * Return: a pointer to the beginning of the located substring
  */
+
 char *_strstr(char *haystack, char *needle)
+
 {
-	return (strstr(haystack, needle));
+	int i;
+
+	if (*needle == '\0')
+		return (haystack);
+			for (; *haystack; haystack++)
+				for (i = 0; needle[i] == haystack[i];i++)
+				{
+					if (needle [i + 1] == '\0')
+						return (haystack);
+				}
+			return ('\0');
 }
