@@ -1,4 +1,3 @@
-#include <string.h>
 #include "main.h"
 
 /**
@@ -12,10 +11,9 @@ char *leet(char *s)
 {
 	char alpha[] = "aAeEoOtTlL";
 	char num[] = "4433007711";
-	int len = strlen(s);
 	int i, j;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < alpha[j]; j++)
 		{
