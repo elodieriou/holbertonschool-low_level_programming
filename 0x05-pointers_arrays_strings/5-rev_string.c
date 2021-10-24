@@ -9,25 +9,14 @@
  */
 void rev_string(char *s)
 {
-	int length, i;
-	char *begin, *end, swap;
+	int i;
+	int len = strlen(s);
 
-	length = strlen(s);
-	begin = s;
-	end = s;
-
-	for (i = 0; i < length - 1; i++)
+	for (i = 0; i < len / 2; i++)
 	{
-		end++;
-	}
+		char rev = s[i];
 
-	for (i = 0; i < length / 2; i++)
-	{
-		swap = *end;
-		*end = *begin;
-		*begin = swap;
-
-		begin++;
-		end--;
+		s[i] = s[len - i - 1];
+		s[len - i - 1] = rev;
 	}
 }
