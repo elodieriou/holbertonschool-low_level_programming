@@ -2,13 +2,14 @@
 #include "main.h"
 
 /**
- * _strdup - function that return a pointer to a newly allocates space in memory
+ * _strdup - function that return a pointer to a newly allocates
+ * space in memory
  *
  * @str: a pointer of string
-  *
- * Return : a pointer to the duplicated string, NULL if insufficient memory
+ *
+ * Return: a pointer to the duplicated string, NULL if insufficient memory
  */
-char *_strdup(char * str)
+char *_strdup(char *str)
 {
 	int i, j;
 	char *s;
@@ -24,7 +25,7 @@ char *_strdup(char * str)
 		i++;
 	}
 
-	s = malloc(i * sizeof(char));
+	s = malloc((i + 1) * sizeof(char));
 	if (s == 0)
 	{
 		return ('\0');
