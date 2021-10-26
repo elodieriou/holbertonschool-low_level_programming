@@ -23,10 +23,9 @@ char *_strdup(char * str)
 	{
 		i++;
 	}
-	return (str);
 
-	str = malloc(i * sizeof(char));
-	if (str == 0)
+	s = malloc(i * sizeof(char));
+	if (s == 0)
 	{
 		return ('\0');
 	}
