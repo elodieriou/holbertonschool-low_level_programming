@@ -25,17 +25,23 @@ char *str_concat(char *s1, char *s2)
 		return ('\0');
 	}
 
-	while (s1[i] != '\0')
+	if (s1)
 	{
-		s[i] = s1[i];
-		i++;
+		while (s1[i] != '\0')
+		{
+			s[i] = s1[i];
+			i++;
+		}
 	}
 
-	while (s2[j] != '\0')
+	if (s2)
 	{
-		s[i] = s2[j];
-		i++;
-		j++;
+		while (s2[j] != '\0')
+		{
+			s[i] = s2[j];
+			i++;
+			j++;
+		}
 	}
 	s[i] = '\0';
 	return (s);
