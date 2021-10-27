@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 {
 	int cents, coins, i;
 	int change[5] = {25, 10, 5, 2, 1};
+
 	coins = 0;
 
 	if (argc != 2)
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	
+
 	cents = atoi(argv[1]);
 
 	for (i = 0; cents > 0; i++)
