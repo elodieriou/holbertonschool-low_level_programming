@@ -1,5 +1,7 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include "main.h"
 
 /**
@@ -12,29 +14,32 @@
  */
 int main(int argc, char *argv[])
 {
-	int a, a2;
+	int i, j, len, sum;
 
-	for (a = 1; a < argc; a++)
+	if (argc == 1)
 	{
-		for (a2 = 0; a2 != '\0'; a2++)
-		{
-			if (argc  < '0' || argc  > '9')
-			{
-				printf("Error\n");
-				return (1);
-			}
-		}
-		if (argc > 1)
-		{
-			int add = atoi(argv[a2]);
-
-			add = add + 1;
-			printf("%d\n", add);
-		}
-		else
-		{
-			return (0);
-		}
+		printf("0\n");
+		return (0);
 	}
-	return (0);
+	else
+	{
+		sum = 0;
+		i = 1;
+		len = strlen(argv[i]);
+
+		for (i = 1; i < argc; i++)
+		{
+			for (j = 0; j < len; j++)
+			{
+				if (isdigit(argv[i][j]) == 0)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
+			sum += atoi(argv[i]);
+		}
+		printf("%d\n", sum);
+		return (0);
+	}
 }
