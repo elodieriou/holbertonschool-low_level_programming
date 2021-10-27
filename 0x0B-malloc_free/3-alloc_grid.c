@@ -4,29 +4,41 @@
 /**
  * alloc_grid - function that returns a pointer to a 2D array of int
  *
- * @width:
- * @height:
+ * @width: row of integers
+ * @height: column of integers
  *
- * Return: an array or 0 if <= 0
+ * Return: a 2D array or 0 if <= 0
  */
 int **alloc_grid(int width, int height)
 {
-	char **ar;
-	int lw, lh;
+	int **ar;
+	int m, lw, lh;
 
 	if (width <= 0 || height <= 0)
-		return ('\0');
+		return (NULL);
 
-	ar = malloc((width + height) * sizeof(int *));
+	ar = malloc(height * sizeof(int *));
 	if (ar == 0)
-		return ('\0');
+		return (NULL);
 
-	for (lw = 0; lw < width; lw++)
+	for (m = 0; m < height; m++)
 	{
-		for (lh = 0; lh < height; lh++)
+		ar[m] = malloc(width * sizeof(int));
+		if (ar[m] == 0)
 		{
-			ar[lw][lh] = 0;
+			while (m >= 0)
+				free(ar[m--]);
+
+			free(ar);
+			return (NULL);
 		}
 	}
+
+	for (lh = 0; lh < height; lh++)
+	{
+		for (lw = 0; lw < width; lw++)
+			ar[lh][lw] = 0;
+	}
 	return (ar);
+
 }
