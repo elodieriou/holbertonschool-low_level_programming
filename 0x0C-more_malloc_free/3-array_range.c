@@ -4,8 +4,8 @@
 /**
  * array_range - function that creates an array of integers
  *
- * @min:
- * @max:
+ * @min: value min of array
+ * @max: value max of array
  *
  * Return: the pointer to the newly created array
  */
