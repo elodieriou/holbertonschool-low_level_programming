@@ -2,23 +2,6 @@
 #include "main.h"
 
 /**
- * _strlen - returns the lenght of a string
- *
- * @s: a string
- *
- * Return: size of the string
- */
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i])
-		i++;
-
-	return (i);
-}
-
-/**
  * _memcpy - fucntion that copies memory area
  *
  * @dest: copy of memory area src
@@ -50,19 +33,23 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	void *nptr;
 
-	ptr = malloc(old_size);
-
 	if (new_size == old_size)
 		return (ptr);
 
 	if (ptr == 0)
+	{
 		ptr = malloc(new_size);
+		return (ptr);
+	}
 
 	if (new_size == 0 && ptr != NULL)
 		return (NULL);
 
 	nptr = malloc(new_size);
-	_memcpy(nptr, ptr, _strlen(ptr));
+	if (nptr == 0)
+		return (NULL);
+
+	_memcpy(nptr, ptr, old_size);
 
 	free(ptr);
 	return (nptr);
