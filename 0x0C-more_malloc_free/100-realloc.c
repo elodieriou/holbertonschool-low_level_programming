@@ -12,7 +12,7 @@ int _strlen(char *s)
 {
 	int i = 0;
 
-	while(s[i])
+	while (s[i])
 		i++;
 
 	return (i);
@@ -40,11 +40,11 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 /**
  * _realloc - function that reallocates a memory block using malloc and free
  *
- * @prt: is a pointer to the memory previously allocated
  * @old_size: is the size in bytes of the allocated space for ptr
  * @new_size: is the new size in bytes of the new memory block
+ * @ptr: is a pointer with the previously memory allocated
  *
- * Return: Nothing
+ * Return: the new memory allocated
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
