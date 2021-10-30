@@ -10,6 +10,7 @@
  *
  * Description: the struct dog give the main informations about a dog
  */
+typedef struct dog dog;
 struct dog
 {
 	char *name;
@@ -18,5 +19,5 @@ struct dog
 };
 
 int main(void);
-
+void init_dog(struct dog *d, char *name, float age, char *owner);
 #endif
