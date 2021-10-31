@@ -10,7 +10,6 @@
  *
  * Description: the struct dog give the main informations about a dog
  */
-typedef struct dog dog;
 struct dog
 {
 	char *name;
