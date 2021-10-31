@@ -50,8 +50,7 @@ All the contents of file.h are put inside file.c, where there is the `#include` 
 
 ### #define
 
-This directive is used to define a preprocessor constant. This allows a value to be associated with \
-a word.
+This directive is used to define a preprocessor constant. This allows a value to be associated with a word.
 
 ```
 #define PI 3.14
@@ -66,15 +65,13 @@ You must write in order :
 
 The #define replace in your source code all words with their corresponding value.
 
-It is possible to do some small arithmetic in the `#define`: addition (+), subtraction (-), multipli\
-cation (*), division (/) and modulo (%).
+It is possible to do some small arithmetic in the `#define`: addition (+), subtraction (-), multiplication (*), division (/) and modulo (%).
 
 #### The predefined constants
 
-In addition to the constants that you can define yourself, there are some constants predefined by th\
-e preprocessor.
+In addition to the constants that you can define yourself, there are some constants predefined by the preprocessor.
 
-Each of these constans begins and ends with two underscor_ symboles
+Each of these constans begins and ends with two underscor_ symboles:
 * `__LINE__` : gives the number the current line
 * `__FILE__` : gives the name of the current file
 * `__DATE__` : gives the date of the compilation
@@ -82,8 +79,7 @@ Each of these constans begins and ends with two underscor_ symboles
 
 ### The macros
 
-When we use `#define` to find-replace a word with a source code, we say that we are creating a macro\
-.
+When we use `#define` to find-replace a word with a source code, we say that we are creating a macro.
 
 #### Macro without parameters
 
