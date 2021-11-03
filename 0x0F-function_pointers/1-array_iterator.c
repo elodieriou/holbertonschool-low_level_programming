@@ -6,6 +6,7 @@
  *
  * @array: a pointer to an array
  * @size: array's size
+ * @action: a pointer to a function that print an element of an array
  *
  * Return: element of an array
  */
