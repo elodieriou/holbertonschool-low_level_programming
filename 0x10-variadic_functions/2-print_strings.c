@@ -2,7 +2,7 @@
 #include "variadic_functions.h"
 
 /**
- * print_string - function that prints strings
+ * print_strings - function that prints strings
  *
  * @separator: the string to be printed between the strings
  * @n: the number of arguments
