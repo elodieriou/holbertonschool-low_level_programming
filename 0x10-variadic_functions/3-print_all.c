@@ -82,7 +82,7 @@ void print_all(const char * const format, ...)
 	va_start(args, format);
 
 	i = 0;
-	while (format != NULL && format[i] != 0)
+	while (format != NULL && format[i])
 	{
 		j = 0;
 		while (remi[j].type)
