@@ -53,9 +53,11 @@ void print_str(char *separator, va_list args)
 	char *str = va_arg(args, char *);
 
 	if (str == NULL)
+	{
 		printf("%s%s", separator, "(nil)");
-	else
-		printf("%s%s", separator, str);
+		return;
+	}
+	printf("%s%s", separator, str);
 }
 
 /**
