@@ -3,7 +3,7 @@
 /**
  * add_nodeint - function that adds a new node at the beginning of linked list
  * @head: a pointer of a pointer that point to the beginning of a list
- * @h: a number
+ * @n: a number
  * Return: the address of the new element, or NULL if it failed
  */
 listint_t *add_nodeint(listint_t **head, const int n)
