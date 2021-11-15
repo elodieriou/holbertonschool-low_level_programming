@@ -143,7 +143,7 @@ julien@ubuntu:~/0x13. More singly linked lists$ ./b
 julien@ubuntu:~/0x13. More singly linked lists$ 
 ```
 
-2. Add node
+__2. Add node__
 
 Write a function that adds a new node at the beginning of a listint_t list.
 
