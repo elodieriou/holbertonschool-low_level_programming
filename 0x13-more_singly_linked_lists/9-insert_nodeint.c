@@ -1,6 +1,20 @@
 #include "lists.h"
 
 /**
+ * listint_len - function that returns the number of elements in a linked list
+ * @h: a pointer to the struct list_t
+ * Return: the number of elements
+ */
+size_t listint_len(const listint_t *h)
+{
+	size_t n;
+
+	for (n = 0; h; n++)
+		h = h->next;
+	return (n);
+}
+
+/**
  * insert_nodeint_at_index - function that inserts a new node at nth position
  * @head: a pointer to a pointer pointing at the beginning of a linked list
  * @idx: is the position or the list where the new nobe should be added
@@ -9,7 +23,13 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new, *current;
+	size_t len = 0;
+	listint_t *new, *tmp = *head;
+	unsigned int i;
+
+	len = listint_len(*head);
+	if (idx > len)
+		return (NULL);
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
@@ -17,24 +37,19 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		free(new);
 		return (NULL);
 	}
-	new->n = n;
 
-	if (*head == NULL || head == NULL)
-		return (new);
+	new->n = n;
 	if (idx == 0)
 	{
 		new->next = *head;
+		*head = new;
 		return (new);
 	}
 
-	current = *head;
-	while (idx - 1 > 0)
-	{
-		current = current->next;
-		idx--;
-	}
-	new->next = current->next;
-	current->next = new;
+	for (i = 0; i < idx - 1; i++)
+		tmp = tmp->next;
 
-	return (*head);
+	new->next = tmp->next;
+	tmp->next = new;
+	return (new);
 }
