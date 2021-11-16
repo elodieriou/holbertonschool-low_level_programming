@@ -27,9 +27,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *new, *tmp = *head; /*add *head in a variable tempory*/
 	unsigned int i;
 
-	if (head == NULL || *head == NULL) /*if list is empty*/
-		return (NULL);
-
 	len = listint_len(*head);
 	if (idx > len) /*if idx rather than the number of element*/
 		return (NULL);
