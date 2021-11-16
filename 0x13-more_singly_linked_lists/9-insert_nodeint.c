@@ -24,29 +24,32 @@ size_t listint_len(const listint_t *h)
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	size_t len = 0;
-	listint_t *new, *tmp = *head;
+	listint_t *new, *tmp = *head; /*add *head in a variable tempory*/
 	unsigned int i;
 
-	len = listint_len(*head);
-	if (idx > len)
+	if (head == NULL || *head == NULL) /*if list is empty*/
 		return (NULL);
 
-	new = malloc(sizeof(listint_t));
+	len = listint_len(*head);
+	if (idx > len) /*if idx rather than the number of element*/
+		return (NULL);
+
+	new = malloc(sizeof(listint_t)); /*allocate memory for a new node*/
 	if (new == NULL)
 	{
 		free(new);
 		return (NULL);
 	}
 
-	new->n = n;
+	new->n = n; /*assigne data at hte new node*/
 	if (idx == 0)
 	{
-		new->next = *head;
+		new->next = *head; /*place the new node at the beginning*/
 		*head = new;
 		return (new);
 	}
 
-	for (i = 0; i < idx - 1; i++)
+	for (i = 0; i < idx - 1; i++) /*find the position of the new node*/
 		tmp = tmp->next;
 
 	new->next = tmp->next;
