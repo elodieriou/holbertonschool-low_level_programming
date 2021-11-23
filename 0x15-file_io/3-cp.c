@@ -6,16 +6,14 @@
  * @argv: an array of arguments
  * Return: 0, always success
  */
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int from, to, r, w, cf, ct;
-	char buffer[BUFSIZ];
+	char buffer[1024];
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
-		exit(97);
-	}
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+
 	from = open(argv[1], O_RDONLY);
 	if (from == -1)
 		dprintf(STDERR_FILENO,
@@ -26,7 +24,7 @@ int main (int argc, char *argv[])
 		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s\n", argv[2]), exit(99);
 
-	while ((r = read(from, buffer, BUFSIZ)) > 0)
+	while ((r = read(from, buffer, 1024)) > 0)
 	{
 		w = write(to, buffer, r);
 		if (w != r || w == -1)
