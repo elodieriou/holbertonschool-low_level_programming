@@ -6,24 +6,6 @@
  */
 int main(void)
 {
-	int ar[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-09";
-	int i = 0;
-
-	while (ar[i] != NULL)
-	{
-		_putchar(ar[i]);
-		_putchar('\n');
-	}
+	write(2, "and that piece of art if useful\" - Dora Korpar, 2015-10-19\n", 59);
 	return (0);
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: the character to print
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
