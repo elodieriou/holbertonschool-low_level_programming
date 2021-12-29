@@ -10,7 +10,7 @@ int main(void)
 
 	for (i = 0; i < 98; i++)
 	{
-		newtNum = num1 + num2;
+		nextNum = num1 + num2;
 		num1 = num2;
 		num2 = nextNum;
 		printf("%lld", nextNum);
