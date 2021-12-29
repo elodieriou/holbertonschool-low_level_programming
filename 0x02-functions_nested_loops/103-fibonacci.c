@@ -18,6 +18,6 @@ int main(void)
 		if (nextNum % 2 == 0 && nextNum < 4000000)
 			sum += nextNum;
 	}
-	printf("%ld", sum);
+	printf("%ld\n", sum);
 	return (0);
 }
