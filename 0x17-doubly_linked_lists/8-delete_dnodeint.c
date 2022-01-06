@@ -44,11 +44,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	for (i = 0; i < index - 1; i++)
 		tmp = tmp->next;
 
-	if (tmp->next->next == NULL)
-		tmp->next = NULL;
+	/*if (tmp->next->next == NULL)
+	  tmp->next = NULL;*/
+	if (tmp->next->next != NULL)
+		tmp->next->next->prev = tmp->next;
 
 	hold_node = tmp->next;
-	tmp->next = hold_node->next;
+	/*tmp->next = hold_node->next;*/
+	tmp->next = tmp->next->next;
 	hold_node->next->prev = tmp;
 	free(hold_node);
 	return (1);
