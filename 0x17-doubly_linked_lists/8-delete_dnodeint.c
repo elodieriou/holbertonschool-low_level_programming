@@ -23,7 +23,7 @@ size_t dlistint_len(const dlistint_t *h)
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	size_t len_node = 0;
-	dlistint_t *hold_node, *tmp;
+	dlistint_t *tmp;
 	unsigned int i;
 
 	len_node = dlistint_len(*head);
@@ -34,25 +34,24 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (-1);
 
 	tmp = *head;
+
+	for (i = 0; i < index; i++)
+		tmp = tmp->next;
+
 	if (index == 0)
 	{
 		*head = (*head)->next;
-		free(tmp);
-		return (1);
+		if (*head != NULL)
+			(*head)->prev = NULL;
 	}
 
-	for (i = 0; i < index - 1; i++)
-		tmp = tmp->next;
+	else
+	{
+		tmp->prev->next = tmp->next;
+		if (tmp->next != NULL)
+			tmp->next->prev = tmp->prev;
+	}
 
-	/*if (tmp->next->next == NULL)
-	  tmp->next = NULL;*/
-	if (tmp->next->next != NULL)
-		tmp->next->next->prev = tmp->next;
-
-	hold_node = tmp->next;
-	/*tmp->next = hold_node->next;*/
-	tmp->next = tmp->next->next;
-	hold_node->next->prev = tmp;
-	free(hold_node);
+	free(tmp);
 	return (1);
 }
