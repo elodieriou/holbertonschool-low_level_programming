@@ -64,7 +64,7 @@ hash_node_t *add_node(hash_node_t **head, char *key, char *value)
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
-	
+
 	new->key = key;
 	new->value = value;
 	new->next = *head;
