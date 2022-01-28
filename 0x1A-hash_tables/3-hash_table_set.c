@@ -13,40 +13,62 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	hash_node_t *new_node, *new;
-	char *dup_val = strdup(value), *dup_key = strdup(key);
+	hash_node_t *new, *tmp;
 
 	if (ht == NULL || key == NULL || strcmp(key, "") == 0)
 		return (0);
 
-	idx = key_index((const unsigned char *)dup_key, ht->size);
+	idx = key_index((const unsigned char *)key, ht->size);
 
 	if (ht->array[idx] == NULL)
 	{
 		new = malloc(sizeof(hash_node_t));
 		if (new == NULL)
 			return (0);
-
-		new->key = dup_key;
-		new->value = dup_val;
+		new->key = strdup(key);
+		new->value = strdup(value);
 		ht->array[idx] = new;
 		return (1);
 	}
-	else if (strcmp(dup_key, ht->array[idx]->key) == 0)
+	tmp = ht->array[idx];
+	while (tmp != NULL)
 	{
-		ht->array[idx]->value = dup_val;
-		return (1);
+		if (strcmp(key, tmp->key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			return (1);
+		}
+		tmp = tmp->next;
 	}
-	else if (strcmp(dup_key, ht->array[idx]->key) != 0)
+	if (strcmp(ht->array[idx]->key, key) != 0)
 	{
-		new_node = malloc(sizeof(hash_node_t));
-		if (new_node == NULL)
+		new = add_node(&ht->array[idx], strdup(key), strdup(value));
+		if (new == NULL)
 			return (0);
-
-		new_node->key = dup_key;
-		new_node->value = dup_val;
-		new_node->next = ht->array[idx];
-		ht->array[idx] = new_node;
 	}
 	return (1);
+}
+
+/**
+ * add_node - function that add a node at the beginning
+ * @head: double pointer to the beginning of a linked list
+ * @key: the key
+ * @value: the value's key
+ * Return: the new node or 0 if error
+ */
+hash_node_t *add_node(hash_node_t **head, char *key, char *value)
+{
+	hash_node_t *new = NULL;
+
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+		return (0);
+	
+	new->key = key;
+	new->value = value;
+	new->next = *head;
+	*head = new;
+
+	return (new);
 }
