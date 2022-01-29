@@ -13,7 +13,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	hash_node_t *first, *new, *tmp;
+	hash_node_t *first, *new;
 
 	if (ht == NULL || key == NULL || strcmp(key, "") == 0)
 		return (0);
@@ -27,22 +27,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (first == NULL)
 			return (0);
 	}
-	tmp = ht->array[idx];
-	while (tmp != NULL)
-	{
-		if (strcmp(key, tmp->key) == 0)
-		{
-			free(tmp->value);
-			tmp->value = strdup(value);
-			return (1);
-		}
-		tmp = tmp->next;
-	}
-	if (strcmp(ht->array[idx]->key, key) != 0)
+
+	else if (strcmp(ht->array[idx]->key, key) != 0)
 	{
 		new = add_node(&ht->array[idx], strdup(key), strdup(value));
 		if (new == NULL)
 			return (0);
+	}
+
+	else
+	{
+		update_value(&ht->array[idx], key, value);
 	}
 	return (1);
 }
@@ -90,4 +85,29 @@ hash_node_t *add_node(hash_node_t **head, char *key, char *value)
 	*head = new;
 
 	return (new);
+}
+
+/**
+ * update_value - function that update the value
+ * @head: the hash table
+ * @key: the key
+ * @value: the value associate
+ * Return: 1 if the value is replace, 0 otherwise
+ */
+int update_value(hash_node_t **head, const char *key, const char *value)
+{
+	hash_node_t *tmp;
+
+	tmp = *head;
+	while (tmp != NULL)
+	{
+		if (strcmp(key, tmp->key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	return (0);
 }
