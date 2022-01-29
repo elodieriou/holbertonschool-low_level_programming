@@ -13,7 +13,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	hash_node_t *new, *tmp;
+	hash_node_t *first, *new, *tmp;
 
 	if (ht == NULL || key == NULL || strcmp(key, "") == 0)
 		return (0);
@@ -22,13 +22,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht->array[idx] == NULL)
 	{
-		new = malloc(sizeof(hash_node_t));
-		if (new == NULL)
+		first = create_linked_list(&ht->array[idx], strdup(key),
+					   strdup(value));
+		if (first == NULL)
 			return (0);
-		new->key = strdup(key);
-		new->value = strdup(value);
-		ht->array[idx] = new;
-		return (1);
 	}
 	tmp = ht->array[idx];
 	while (tmp != NULL)
@@ -48,6 +45,28 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			return (0);
 	}
 	return (1);
+}
+
+/**
+ * create_linked_list - function that create the first node of a linked list
+ * @head: the beginning of the first node
+ * @key: the key
+ * @value: the value associate
+ * Return: the first node or 0 if error
+ */
+hash_node_t *create_linked_list(hash_node_t **head, char *key, char *value)
+{
+	hash_node_t *first = NULL;
+
+	first = malloc(sizeof(hash_node_t));
+	if (first == NULL)
+		return (0);
+
+	first->key = key;
+	first->value = value;
+	*head = first;
+
+	return (first);
 }
 
 /**
