@@ -2,9 +2,9 @@
     <img width="50%" height="200" src="https://getlogovector.com/wp-content/uploads/2020/11/holberton-school-logo-vector.png"
 </p>
 
-# Projects holbertonschool-higher_level_programming :woman_student:
+# Projects holbertonschool-low_level_programming :woman_student:
 
-This repository contains files written in Python.
+This repository contains files written in C.
 
 The list of projects contained follows :
 
