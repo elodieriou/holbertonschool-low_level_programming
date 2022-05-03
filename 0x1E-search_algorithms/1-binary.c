@@ -9,16 +9,16 @@
  */
 void print_array(int *array, size_t left, size_t right)
 {
-    size_t i;
+	size_t i;
 
-    printf("Searching in array:");
-    for (i = left; i < right; i++)
-        printf(" %d, ", array[i]);
-    printf(" %d\n", array[i]);
+	printf("Searching in array:");
+	for (i = left; i < right; i++)
+		printf(" %d, ", array[i]);
+	printf(" %d\n", array[i]);
 }
 
 /**
- * binear_search - function that searches for a value in an sorted of integers
+ * binary_search - function that searches for a value in an sorted of integers
  * using Binear Search Algorithm
  * @array: a pointer to the first element of the array to search in
  * @size: the number of elements in array
@@ -29,23 +29,23 @@ void print_array(int *array, size_t left, size_t right)
  */
 int binary_search(int *array, size_t size, int value)
 {
-    size_t left = 0, right = size - 1, mid;
+	size_t left = 0, right = size - 1, mid;
 
-    if (array == NULL)
-        return (-1);
+	if (array == NULL)
+		return (-1);
 
-    while (right >= left)
-    {
+	while (right >= left)
+	{
 
-        print_array(array, left, right);
+		print_array(array, left, right);
 
-        mid = left + (right - left) / 2;
-        if (value == array[mid])
-            return (mid);
-        if (value > array[mid])
-            left = mid + 1;
-        else
-            right = mid - 1;
-    }
-        return (-1);
+		mid = left + (right - left) / 2;
+		if (value == array[mid])
+			return (mid);
+		if (value > array[mid])
+			left = mid + 1;
+		else
+			right = mid - 1;
+	}
+	return (-1);
 }
