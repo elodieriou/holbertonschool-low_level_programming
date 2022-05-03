@@ -31,12 +31,11 @@ int binary_search(int *array, size_t size, int value)
 {
 	size_t left = 0, right = size - 1, mid;
 
-	if (array == NULL)
+	if (array == NULL || size == 0)
 		return (-1);
 
 	while (right >= left)
 	{
-
 		print_array(array, left, right);
 
 		mid = left + (right - left) / 2;
